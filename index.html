@@ -79,12 +79,19 @@
             color: var(--pali-color);
             font-weight: bold;
             text-align: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .pali-block {
+            color: var(--pali-color);
+            font-weight: bold;
+            text-align: center;
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #f0e0d0;
         }
 
         .pali { color: var(--pali-color); font-weight: bold; }
-
-        .verse-box { margin-bottom: 15px; }
 
         .pa-o {
             display: block;
@@ -116,7 +123,6 @@
             font-family: 'Padauk', sans-serif;
             font-size: 1.1em;
             margin-top: 20px;
-            transition: 0.3s ease;
         }
 
         #aboutContent {
@@ -127,10 +133,8 @@
             border: 2px dashed var(--primary-gold);
             border-radius: 12px;
             text-align: center;
-            animation: fadeIn 0.5s;
         }
 
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         @media (min-width: 768px) { .container { padding: 50px; } }
     </style>
 </head>
@@ -141,21 +145,9 @@
 
     <div class="section">
         <span class="title">(ငဝ်းဝုဲင်ႏဖရာꩻ)</span>
-        <div class="verse-box">
-            <span class="pali">ဗုဒ္ဓံ ပူစေမိ</span>
-            <span class="pa-o">ဗုဒ္ဓံ - သစ္စာႏလစ်ꩻပါꩻထီႏသေငါꩻဒါႏ နီဗွေႏမျတ်ဖရာꩻယို</span>
-            <span class="pa-o">ပူဇေမိ - ခွေသွဉ်းရိုႏသေႏခေါက်ဝုဲင်ႏပူႏဇောႏဩ</span>
-        </div>
-        <div class="verse-box">
-            <span class="pali">ဓမ္ံ ပူဇေမိ</span>
-            <span class="pa-o">ဓမ္မံ - ဗွေႏမျတ်ဖရာꩻ ကဟော်ꩻကျာꩻဒါႏ တရာꩻတောႏမျတ်ယို</span>
-            <span class="pa-o">ပူဇေမိ - ခွေသွဉ်းရိုႏသေႏခေါက်ꩻဝုဲင်ႏပူႏဇောႏဩ</span>
-        </div>
-        <div class="verse-box">
-            <span class="pali">သံဃံ ပူဇေမိ</span>
-            <span class="pa-o">သံဃံ - ဗွေႏမျတ်ဖရာꩻတပဲ့ꩻ ကဟဲ့ꩻဖန်ထင်ႏဒျာႏသံႏဃာႏတောႏမျတ်ယို</span>
-            <span class="pa-o">ပူဇေမိ - ခွေသွဉ်းရိုႏသေႏ ခေါက်ဝုဲင်ႏပူႏဇောႏဩ</span>
-        </div>
+        <div class="pa-o"><span class="pali">ဗုဒ္ဓံ ပူစေမိ</span> - ဗုဒ္ဓံ - သစ္စာႏလစ်ꩻပါꩻထီႏသေငါꩻဒါႏ နီဗွေႏမျတ်ဖရာꩻယို ၊ ပူဇေမိ - ခွေသွဉ်းရိုႏသေႏခေါက်ဝုဲင်ႏပူႏဇောႏဩ</div>
+        <div class="pa-o"><span class="pali">ဓမ္မံ ပူဇေမိ</span> - ဓမ္မံ - ဗွေႏမျတ်ဖရာꩻ ကဟော်ꩻကျာꩻဒါႏ တရာꩻတောႏမျတ်ယို ၊ ပူဇေမိ - ခွေသွဉ်းရိုႏသေႏခေါက်ꩻဝုဲင်ႏပူႏဇောႏဩ</div>
+        <div class="pa-o"><span class="pali">သံဃံ ပူဇေမိ</span> - သံဃံ - ဗွေႏမျတ်ဖရာꩻတပဲ့ꩻ ကဟဲ့ꩻဖန်ထင်ႏဒျာႏသံႏဃာႏတောႏမျတ်ယို ၊ ပူဇေမိ - ခွေသွဉ်းရိုႏသေႏ ခေါက်ဝုဲင်ႏပူႏဇောႏဩ</div>
         <div class="sadhu">သာႏဓု သာႏဓု သာႏဓု</div>
     </div>
 
@@ -191,16 +183,12 @@
         </div>
 
         <br><span class="title">သံဃာႏဂွုဏ်ႏတောႏ ၉ ပါꩻ</span>
-        <div class="grid-container">
-            <div class="grid-item">သုပ္ပဋိပ္ပန္နော ဘဂဝတော သာဝကသံဃော</div>
-            <div class="grid-item">ဥဇုပ္ပဋိပ္ပန္နော ဘဂဝတော သာဝကသံဃော</div>
-            <div class="grid-item">ဉာယပ္ပဋိပ္ပန္နော ဘဂဝတော သာဝကသံဃော</div>
-            <div class="grid-item">သာမီစိပ္ပဋိပ္ပန္နော ဘဂဝတော သာဝကသံဃော</div>
-            <div class="grid-item">အာဟုနေယျော</div>
-            <div class="grid-item">ပါဟုနေယျော</div>
-            <div class="grid-item">ဒက္ခိဏေယျော</div>
-            <div class="grid-item">အဉ္စလီကရဏီယော</div>
-            <div class="grid-item">အနုတ္တရံ ပုညခေတ္တံ လောကဿ</div>
+        <div class="pali-block">
+            သုပ္ပဋိပ္ပန္နော ဘဂဝတော သာဝကသံဃော။<br>
+            ဥဇုပ္ပဋိပ္ပန္နော ဘဂဝတော သာဝကသံဃော။<br>
+            ဉာယပ္ပဋိပ္ပန္နော ဘဂဝတော သာဝကသံဃော။<br>
+            သာမီစိပ္ပဋိပ္ပန္နော ဘဂဝတော သာဝကသံဃော။<br><br>
+            ယဒိဒံ စတ္တာရိ ပုရိသယုကာနိ အဋ္ဌပုရိသပုဂ္ဂလာ ဧသ ဘဂဝတော သာဝကသံဃော အာဟုနေယျော ၊ ပါဟုနေယျော ၊ ဒက္ခိဏေယျော ၊ အဉ္စလီကရဏီယော ၊ အနုတ္တရံ ပုညခေတ္တံ လောကဿ။
         </div>
     </div>
 
@@ -221,10 +209,9 @@
             <div class="grid-item">ဝိဂတပစ္စယော</div> <div class="grid-item">အဝိဂတပစ္စယော</div>
         </div>
         <br><span class="title">အနန္တဂွူဏ်ႏတောႏ ၅ ပါꩻ</span>
-        <div class="grid-container">
-            <div class="grid-item">ဗုဒ္ဓဂုဏော</div> <div class="grid-item">ဓမ္မဂုဏော</div>
-            <div class="grid-item">သံဃဂုဏော</div> <div class="grid-item">မာတာပိတုဂုဏော</div>
-            <div class="grid-item">အာစာရိယဂုဏော</div>
+        <div class="pali-block">
+            ဗုဒ္ဓဂုဏော အနန္တော ၊ ဓမ္မဂုဏော အနန္တော၊ သံဃဂုဏော အနန္တော ၊ မာတာပိတုဂုဏော အနန္တော၊ အာစာရိယဂုဏော အနန္တော၊ <br>
+            <span style="color: #2e7d32;">ပဉ္စဂုဏံ အဟံ ဝန္ဒာမိ သပ္ပဒါ။</span>
         </div>
     </div>
 
