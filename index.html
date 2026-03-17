@@ -64,9 +64,9 @@
         .pali {
             color: var(--pali-color);
             font-weight: bold;
-            display: block;
-            margin-top: 10px;
         }
+
+        .verse-box { margin-bottom: 15px; }
 
         .pa-o {
             display: block;
@@ -75,9 +75,22 @@
             border-left: 2px solid #ddd;
         }
 
-        .verse-box {
-            margin-bottom: 15px;
+        /* ပဋ္ဌာန်း ၂၄ ပစ္စည်းအတွက် Grid */
+        .patthan-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
         }
+
+        .patthan-item {
+            padding: 5px;
+            border-bottom: 1px solid #f0f0f0;
+            color: var(--pali-color);
+            font-weight: bold;
+        }
+
+        .pre-wrap { white-space: pre-line; }
 
         .sadhu {
             text-align: center;
@@ -87,21 +100,34 @@
             margin: 20px 0;
         }
 
-        .pre-wrap {
-            white-space: pre-line;
+        /* About Us Button Styles */
+        .about-btn {
+            background-color: var(--primary-gold);
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Padauk', sans-serif;
+            font-size: 1.1em;
+            margin-top: 20px;
+            transition: 0.3s;
         }
 
-        /* ဇယားပုံစံဖြင့် ညီညာအောင်စီခြင်း */
-        .grid-row {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 5px;
-            margin-bottom: 15px;
+        .about-btn:hover { background-color: #946d09; }
+
+        /* Modal / Popup Styles */
+        #aboutContent {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: #fdf2e9;
+            border: 1px dashed var(--primary-gold);
+            border-radius: 8px;
+            text-align: center;
         }
 
-        @media (min-width: 768px) {
-            .container { padding: 50px; }
-        }
+        @media (min-width: 768px) { .container { padding: 50px; } }
     </style>
 </head>
 <body>
@@ -111,25 +137,21 @@
 
     <div class="section">
         <span class="title">(ငဝ်းဝုဲင်ႏဖရာꩻ)</span>
-        
         <div class="verse-box">
             <span class="pali">ဗုဒ္ဓံ ပူစေမိ</span>
             <span class="pa-o">ဗုဒ္ဓံ - သစ္စာႏလစ်ꩻပါꩻထီႏသေငါꩻဒါႏ နီဗွေႏမျတ်ဖရာꩻယို</span>
             <span class="pa-o">ပူဇေမိ - ခွေသွဉ်းရိုႏသေႏခေါက်ဝုဲင်ႏပူႏဇောႏဩ</span>
         </div>
-
         <div class="verse-box">
             <span class="pali">ဓမ္မံ ပူဇေမိ</span>
             <span class="pa-o">ဓမ္မံ - ဗွေႏမျတ်ဖရာꩻ ကဟော်ꩻကျာꩻဒါႏ တရာꩻတောႏမျတ်ယို</span>
             <span class="pa-o">ပူဇေမိ - ခွေသွဉ်းရိုႏသေႏခေါက်ꩻဝုဲင်ႏပူႏဇောႏဩ</span>
         </div>
-
         <div class="verse-box">
             <span class="pali">သံဃံ ပူဇေမိ</span>
             <span class="pa-o">သံဃံ - ဗွေႏမျတ်ဖရာꩻတပဲ့ꩻ ကဟဲ့ꩻဖန်ထင်ႏဒျာႏသံႏဃာႏတောႏမျတ်ယို</span>
             <span class="pa-o">ပူဇေမိ - ခွေသွဉ်းရိုႏသေႏ ခေါက်ဝုဲင်ႏပူႏဇောႏဩ</span>
         </div>
-
         <div class="sadhu">သာႏဓု သာႏဓု သာႏဓု</div>
     </div>
 
@@ -153,21 +175,43 @@
 
         <b class="pali">သံဃာႏဂွုဏ်ႏတောႏ ၉ ပါꩻ</b>
         <p class="pali">
-        သုပ္ပဋိပ္ပန္နော ဘဂဝတော သာဝကသံဃော။
-        ဥဇုပ္ပဋိပ္ပန္နော ဘဂဝတော သာဝကသံဃော။
-        ဉာယပ္ပဋိပ္ပန္နော ဘဂဝတော သာဝကသံဃော။
-        သာမီစိပ္ပဋိပ္ပန္နော ဘဂဝတော သာဝကသံဃော။
+        သုပ္ပဋိပ္ပန္နော ဘဂဝတော သာဝကသံဃော။ ဥဇုပ္ပဋိပ္ပန္နော ဘဂဝတော သာဝကသံဃော။
+        ဉာယပ္ပဋိပ္ပန္နော ဘဂဝတော သာဝကသံဃော။ သာမီစိပ္ပဋိပ္ပန္နော ဘဂဝတော သာဝကသံဃော။
         ယဒိဒံ စတ္တာရိ ပုရိသယုကာနိ အဋ္ဌပုရိသပုဂ္ဂလာ ဧသ ဘဂဝတော သာဝကသံဃော အာဟုနေယျော ၊ ပါဟုနေယျော ၊ ဒက္ခိဏေယျော ၊ အဉ္စလီကရဏီယော ၊ အနုတ္တရံ ပုညခေတ္တံ လောကဿ။
         </p>
     </div>
 
     <div class="section">
         <span class="title">ပဋ္ဌန်ꩻ ၂၄ ပါꩻ</span>
-        <p class="pali">
-        ဟေတုပစ္စယော အရမ္မဏပစ္စယော ၊ အဓိပတိပစ္စယော အနန္တရပစ္စယော ၊ သမနန္တရပစ္စယော သဟဇာတပစ္စယော ၊ အညမညပစ္စယော နိဿယပစ္စယော ၊ ဥပနိဿယပစ္စယော ပုရေဇာတပစ္စယော ၊ ပစ္ဆာဇာတပစ္စယော အသေဝနပစ္စယော ၊ ကမ္မပစ္စယော ဝိပါကပစ္စယော ၊ အာဟာရပစ္စယော ဣန္ဒြိယပစ္စယော ၊ စျာနပစ္စယော မဂ္ဂပစ္စယော ၊ သမ္ပယုတ္တပစ္စယော ဝိပ္ပယုတ္တပစ္စယော ၊ အတ္ထိပစ္စယော နတ္ထိပစ္စယော ၊ ဝိဂတပစ္စယော အဝိဂတပစ္စယော။
-        </p>
+        <div class="patthan-grid">
+            <div class="patthan-item">၁။ ဟေတုပစ္စယော</div>
+            <div class="patthan-item">၂။ အရမ္မဏပစ္စယော</div>
+            <div class="patthan-item">၃။ အဓိပတိပစ္စယော</div>
+            <div class="patthan-item">၄။ အနန္တရပစ္စယော</div>
+            <div class="patthan-item">၅။ သမနန္တရပစ္စယော</div>
+            <div class="patthan-item">၆။ သဟဇာတပစ္စယော</div>
+            <div class="patthan-item">၇။ အညမညပစ္စယော</div>
+            <div class="patthan-item">၈။ နိဿယပစ္စယော</div>
+            <div class="patthan-item">၉။ ဥပနိဿယပစ္စယော</div>
+            <div class="patthan-item">၁၀။ ပုရေဇာတပစ္စယော</div>
+            <div class="patthan-item">၁၁။ ပစ္ဆာဇာတပစ္စယော</div>
+            <div class="patthan-item">၁၂။ အသေဝနပစ္စယော</div>
+            <div class="patthan-item">၁၃။ ကမ္မပစ္စယော</div>
+            <div class="patthan-item">၁၄။ ဝိပါကပစ္စယော</div>
+            <div class="patthan-item">၁၅။ အာဟာရပစ္စယော</div>
+            <div class="patthan-item">၁၆။ ဣန္ဒြိယပစ္စယော</div>
+            <div class="patthan-item">၁၇။ စျာနပစ္စယော</div>
+            <div class="patthan-item">၁၈။ မဂ္ဂပစ္စယော</div>
+            <div class="patthan-item">၁၉။ သမ္ပယုတ္တပစ္စယော</div>
+            <div class="patthan-item">၂၀။ ဝိပ္ပယုတ္တပစ္စယော</div>
+            <div class="patthan-item">၂၁။ အတ္ထိပစ္စယော</div>
+            <div class="patthan-item">၂၂။ နတ္ထိပစ္စယော</div>
+            <div class="patthan-item">၂၃။ ဝိဂတပစ္စယော</div>
+            <div class="patthan-item">၂၄။ အဝိဂတပစ္စယော</div>
+        </div>
 
-        <span class="title">အနန္တဂွူဏ်ႏတောႏ ၅ပါꩻ</span>
+        <br>
+        <span class="title">အနန္တဂွူဏ်ႏတောႏ ၅ ပါꩻ</span>
         <p class="pali">
         ဗုဒ္ဓဂုဏော အနန္တော ၊ ဓမ္မဂုဏော အနန္တော၊ သံဃဂုဏော အနန္တော ၊ မာတာပိတုဂုဏော အနန္တော၊ အာစာရိယဂုဏော အနန္တော၊ ပဉ္စဂုဏံ အဟံ ဝန္ဒာမိ သပ္ပဒါ။
         </p>
@@ -175,40 +219,39 @@
 
     <div class="section">
         <span class="title">ငဝ်းပသာမေတ္တာႏ</span>
-        <div class="pre-wrap">
-        ၁။ ခွေသွဉ်းနမ်းခါ ကိုယ်ႏစောင်ꩻပါ ယံကင်ꩻရောႏဂါႏ ရန်ႏယံခွါႏ နမ်းသꩻချမ်ꩻသာႏ ယံအဝ်ႏဩ။
-        ၂။ ကေꩻဇူꩻတန်အာ မွိူးတောမ်ႏဖါ ယံကင်ꩻရောႏဂါႏ ရန်ႏယံခွါႏ နမ်းသꩻချမ်ꩻသာႏ ယံအဝ်ႏဩ။
-        ၃။ သွဉ်သင်ꩻဖေႏဒါႏ ဗွေႏဆရာႏ ယံကင်ꩻရောႏဂါႏ ရန်းယံခွါႏ နမ်းသꩻချမ်ꩻသာႏ ယံအဝ်ႏဩ။
-        ၄။ ဖူးဝေးဗော့ꩻညာꩻ စွူမ်ႏဖြာꩻဖြာꩻ ယံကင်ꩻရောႏဂါႏ ရန်းယံခွါႏ နမ်းသꩻချမ်ꩻသာႏ ယံအဝ်ႏဩ။
-        ၅။ မိတ်ဆွေႏဟဝ်ဒါႏ သွꩻသဟာႏ ယံကင်ꩻရောႏဂါႏ ရန်ႏယံခွါႏ နမ်းသꩻချမ်ꩻသာႏ ယံအဝ်ႏဩ။
-        ၆။ နီရပ်ဒုံကို လိုꩻပေါင်ꩻယို ယံကင်ꩻရောႏဂါႏ ရန်ႏယံခွါႏ နမ်းသꩻချမ်ꩻသာႏ ယံအဝ်ႏဩ။
-        ၇။ နီကျောင်ꩻကန်ႏကို သံႏဃာႏယို ယံကင်ꩻရောႏဂါႏ ရန်ႏယံခွါႏ နမ်းသꩻချမ်ꩻသာႏ ယံအဝ်ႏဩ။
-        ၈။ လိုꩻလူꩻဗျဟ္မာႏ သတ္တဝါႏ ယံကင်ꩻရောႏဂါႏ ရန်ႏယံခွါႏ နမ်းသꩻချမ်ꩻသာႏ ယံအဝ်ႏဩ။
-        ၉။ ကားကအဝ်ႏဒါႏ သတ္တဝါႏ ယံကင်ꩻရောႏဂါႏ ရန်ႏယံခွါႏ နမ်းသꩻချမ်ꩻသာႏ ယံအဝ်ႏဩ။
-        </div>
-    </div>
-
-    <div class="section">
-        <span class="title">ငဝ်ဖကုသိုလ်ႏ</span>
-        <p class="pre-wrap">
-        ဟန်ႏသလဲင်ႏခါယို နီသွဉ်းသီး ကမာꩻဗာႏကုသိုလ်ႏ၊ နီသွဉ်းသီး ကကျိုႏလိုႏဗာႏဒါႏန၊ ယိုခါဘဝ ကလူႏဗာႏ၊ (ဟန်ႏရဝ်ꩻ၊ဟန်ႏနီꩻဟန်ႏဟာ)အတာႏ ကမာꩻသေꩻ၊ ဒါႏနသီႏလေႏ သစ္စာႏခံႏ၊ မဟာႏဒါႏနံႏ ဖေႏအကျိုꩻ၊ ပုညကုသိုလ်ႏဖအခြွီ၊ ဖထင်ႏရီးကီ မွိုးတွမ်ႏဖါ၊ ဆရာႏလဲ့ခါ ဖတွိုႏဗာႏ၊ ဖူးဝေးညာꩻတကာႏ ဖူတွမ်ႏဖီ၊ နီနမ်းလောင်းကီ အဝ်ႏပွေါးထွား၊ တဆီနီစား လူꩻသမ္မာႏ၊ ကျောင်ꩻကန်ႏဝိဟာႏ ကပွေါးထိင်ꩻ၊ ပွေါးလမ်းပွေါးဝေင်ꩻပွေါးဒုံဆောင်ႏ၊ သာသနာႏအခြောင်ႏ ကထိန်ꩻတီ၊ 
-        မာႏဃခွန်ဖီ နင်ꩻလူꩻယိန်ႏ၊ သူႏရာႏ သုရိန်ႏ ဟေဝန္တာႏ၊ ဆꩻကွဉ်ႏဖဲ့ꩻဒျာႏ ခွန်မွူးလာ၊ မာႏဃ သိကျာꩻစတုလောႏ မာႏနတ်ခွန်ကျောႏ ဝိသကျုံႏ
-        လူꩻနံသူဘွုံႏ တနံဝေင်ꩻ ဗျဟ္မာႏခွꩻညိမ်ꩻ ဘွုံႏနီဆီ ၊
-        ဘဝဂ်ဆကီ အရန်းထို ဆꩻလ ဟံႏကိုအဝီစိ 
-        ရွုမ်းဗူႏခြွဉ်းထေ့ သိုမ်ဆီပုဲင် သတ္တဝါႏတင်ꩻလုဲင် 
-        ဘွုံႏလောက မို့ꩻယိုဆꩻလ ဟမ်ႏဆꩻကီ 
-        လွစ်တဝ်းထာꩻသီ သꩻသားမျိုꩻ မွန်သဲင်ꩻဝင်ꩻရိုꩻ 
-        ဒေါ့ꩻကုဋေႏ နမ်းတန်နမ်းပေႏသတ္တဝါႏခင်ႏဆေ့ꩻ
-        ခင်ႏအာ ခင်ႏအဝ်ႏတဝ်း ယံကလꩻညီꩻရဝ်းကုသိုလ်ႏကျိုꩻ၊ 
-        စိမ်လူꩻ စိမ်လိုꩻ စိမ်ဗျဟ္မာႏ သိုမ်ဆီပုဲင်တရွာႏ ဖဖေႏလို့ နေးဝင်ꩻသာႏဓု ယံလꩻညီꩻ 
-        ထီဖူꩻကုဋေႏပေါင်ꩻတဆီ ကောင်လောင်းကောင်ကီ ကွတ်ꩻကုဋေႏ သဗ္ဗေႏသတ္တာႏ သတ္တဝါႏအနန္တ ယံဖေႏကလꩻဖတွာတွာ နင်ꩻလူꩻမျတ်ခါ ဝသုန္ဒရေႏ သက်သေႏထွားတီႏ ယံကတောင်ꩻ နီသွဉ်းသီး ကမာꩻခါꩻ အကျောင်ꩻဖေႏဒါႏန မဟာႏပုညအနုဘောႏ ရေႏရွယ်ႏဖဖြယ် ယံကလꩻ အနုမောဒန စွူမ်ႏဖြာꩻစီႏ ယံကသာႏဓု ညီꩻညီꩻဝင်ꩻနောဗွေႏသီးဩ
+        <p class="pre-wrap">၁။ ခွေသွဉ်းနမ်းခါ ကိုယ်ႏစောင်ꩻပါ ယံကင်ꩻရောႏဂါႏ ရန်ႏယံခွါႏ နမ်းသꩻချမ်ꩻသာႏ ယံအဝ်ႏဩ။
+        ... (အပိုဒ် ၂ မှ ၉ အထိ) ...
+        ၉။ ကားကအဝ်ႏဒါႏ သတ္တဝါႏ ယံကင်ꩻရောႏဂါႏ ရန်ႏယံခွါႏ နမ်းသꩻချမ်ꩻသာႏ ယံအဝ်ႏဩ။</p>
         
-        ကားကအဝ်ႏလိုꩻလူꩻဗျဟ္မာႏ သတ္တဝါႏအနန္တ ဟန်ႏသနီꩻယို နီသွဉ်းသီးဖဖေႏကုသိုလ်ႏ ယံကလꩻညီꩻညီꩻ လꩻတွာတွာဝင်ꩻနေား ဗွေႏသီးဩ။
-        </p>
+        <br>
+        <span class="title">ငဝ်ဖကုသိုလ်ႏ</span>
+        <p class="pre-wrap">ဟန်ႏသလဲင်ႏခါယို နီသွဉ်းသီး ကမာꩻဗာႏကုသိုလ်ႏ ... (စာသားအပြည့်အစုံ) ... နေးဝင်ꩻသာႏဓု ယံလꩻညီꩻ။</p>
         <div class="sadhu">သာႏဓု သာႏဓု သာႏဓု</div>
     </div>
 
+    <div style="text-align: center;">
+        <button class="about-btn" onclick="toggleAbout()">အကျောင်ꩻခရာႏ (About Us)</button>
+        <div id="aboutContent">
+            <p>
+                " လိတ်အမာႏဖုံႏ တစွို့ꩻတဝ်းဖုံႏမိဉ်ႏပါဒါႏလဲ့ သေနာႏစွꩻခွင်ꩻဖေႏသွော့ခွေသွဉ်းဩ ကောပ်ပွိူး ခွေသွဉ်းယို အနယ်ꩻပညာႏတလျင်ႏငါႏတဝ်းတွော့ꩻ အတရွို့ꩻဖုံႏပါဒါႏအကျောင်ꩻ တောင်ꩻပြန်ႏဗာႏသွူဩ "<br><br>
+                <b>ခွေသွဉ်းခွန်စိုးရီ - ချို့ꩻထီ</b>
+            </p>
+        </div>
+    </div>
+
 </div>
+
+<script>
+    function toggleAbout() {
+        var content = document.getElementById("aboutContent");
+        if (content.style.display === "block") {
+            content.style.display = "none";
+        } else {
+            content.style.display = "block";
+            content.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+</script>
 
 </body>
 </html>
