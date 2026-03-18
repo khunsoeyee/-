@@ -4,7 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ပအိုဝ်ႏငဝ်းဝုဲင်ႏဖရာꩻ</title>
+    
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#b8860b">
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
     <link href="https://fonts.googleapis.com/css2?family=Padauk:wght@400;700&display=swap" rel="stylesheet">
+    
     <style>
         :root {
             --primary-gold: #b8860b;
@@ -12,6 +21,17 @@
             --card-bg: #ffffff;
             --text-main: #1a1a1a;
             --pali-color: #800000;
+        }
+
+        /* Splash Screen Style */
+        #splash-screen {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: var(--bg-color);
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
         }
 
         body {
@@ -30,7 +50,7 @@
             max-width: 900px;
             width: 100%;
             background: var(--card-bg);
-            padding: 30px;
+            padding: 20px;
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
         }
@@ -46,7 +66,7 @@
 
         .section {
             margin-bottom: 35px;
-            padding: 20px;
+            padding: 15px;
             border: 1px solid #eee;
             border-radius: 10px;
             background-color: #fdfbff;
@@ -64,10 +84,11 @@
             border-radius: 5px;
         }
 
+        /* Grid for Patthan & Guntan */
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 12px;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 10px;
             margin-top: 10px;
         }
 
@@ -89,9 +110,8 @@
             padding: 15px;
             border-radius: 8px;
             border: 1px solid #f0e0d0;
+            margin-top: 10px;
         }
-
-        .pali { color: var(--pali-color); font-weight: bold; }
 
         .pa-o {
             display: block;
@@ -99,6 +119,8 @@
             padding-left: 15px;
             border-left: 3px solid var(--primary-gold);
         }
+
+        .pali { color: var(--pali-color); font-weight: bold; }
 
         .pre-wrap { 
             white-space: pre-line; 
@@ -122,23 +144,29 @@
             cursor: pointer;
             font-family: 'Padauk', sans-serif;
             font-size: 1.1em;
-            margin-top: 20px;
+            margin: 20px auto;
+            display: block;
         }
 
         #aboutContent {
             display: none;
             margin-top: 20px;
-            padding: 25px;
+            padding: 20px;
             background: #fff8f0;
             border: 2px dashed var(--primary-gold);
             border-radius: 12px;
             text-align: center;
         }
 
-        @media (min-width: 768px) { .container { padding: 50px; } }
+        @media (min-width: 768px) { .container { padding: 40px; } }
     </style>
 </head>
 <body>
+
+<div id="splash-screen">
+    <img src="logo.png" alt="Logo" width="120" onerror="this.style.display='none'">
+    <h2 style="color: var(--primary-gold); margin-top: 15px;">နမော တဿ</h2>
+</div>
 
 <div class="container">
     <h1>ပအိုဝ်ႏငဝ်းဝုဲင်ႏဖရာꩻ</h1>
@@ -175,14 +203,12 @@
         <br><span class="title">တရာꩻဂွုဏ်ႏတောႏ ၆ ပါꩻ</span>
         <div class="grid-container">
             <div class="grid-item">သွာက္ခာတော ဘဂဝတာ ဓမ္မော</div>
-            <div class="grid-item">သန္ဒိဋ္ဌိကော</div>
-            <div class="grid-item">အကာလိကော</div>
-            <div class="grid-item">ဧဟိပဿိကော</div>
-            <div class="grid-item">ဩပနေယျိကော</div>
+            <div class="grid-item">သန္ဒိဋ္ဌိကော</div> <div class="grid-item">အကာလိကော</div>
+            <div class="grid-item">ဧဟိပဿိကော</div> <div class="grid-item">ဩပနေယျိကော</div>
             <div class="grid-item">ပစ္စတ္တံ ဝေဒိတဗ္ဗော ဝိညူဟိ</div>
         </div>
 
-        <br><span class="title">သံဃာႏဂွုဏ်ႏတောႏ ၉ ပါꩻ</span>
+        <br><span class="title">သံဃာႏဂွုဏ်ႏတောႏ</span>
         <div class="pali-block">
             သုပ္ပဋိပ္ပန္နော ဘဂဝတော သာဝကသံဃော။<br>
             ဥဇုပ္ပဋိပ္ပန္နော ဘဂဝတော သာဝကသံဃော။<br>
@@ -208,9 +234,11 @@
             <div class="grid-item">အတ္ထိပစ္စယော</div> <div class="grid-item">နတ္ထိပစ္စယော</div>
             <div class="grid-item">ဝိဂတပစ္စယော</div> <div class="grid-item">အဝိဂတပစ္စယော</div>
         </div>
-        <br><span class="title">အနန္တဂွူဏ်ႏတောႏ ၅ ပါꩻ</span>
+        <br>
+        <span class="title">အနန္တဂွူဏ်ႏတောႏ ၅ ပါꩻ</span>
         <div class="pali-block">
-            ဗုဒ္ဓဂုဏော အနန္တော ၊ ဓမ္မဂုဏော အနန္တော၊ သံဃဂုဏော အနန္တော ၊ မာတာပိတုဂုဏော အနန္တော၊ အာစာရိယဂုဏော အနန္တော၊ <br>
+            ဗုဒ္ဓဂုဏော အနန္တော ၊ ဓမ္မဂုဏော အနန္တော၊ သံဃဂုဏော အနန္တော ၊ <br>
+            မာတာပိတုဂုဏော အနန္တော၊ အာစာရိယဂုဏော အနန္တော၊ <br>
             <span style="color: #2e7d32;">ပဉ္စဂုဏံ အဟံ ဝန္ဒာမိ သပ္ပဒါ။</span>
         </div>
     </div>
@@ -229,7 +257,7 @@
         ၉။ ကားကအဝ်ႏဒါႏ သတ္တဝါႏ ယံကင်ꩻရောႏဂါႏ ရန်ႏယံခွါႏ နမ်းသꩻချမ်ꩻသာႏ ယံအဝ်ႏဩ။
         </div>
         <br>
-        <span class="title">ငဝ်းဖကုသိုလ်ႏ</span>
+        <span class="title">ငဝ်ဖကုသိုလ်ႏ</span>
         <p class="pre-wrap">
         ဟန်ႏသလဲင်ႏခါယို နီသွဉ်းသီး ကမာꩻဗာႏကုသိုလ်ႏ၊ နီသွဉ်းသီး ကကျိုႏလိုႏဗာႏဒါႏန၊ ယိုခါဘဝ ကလူႏဗာႏ၊ (ဟန်ႏရဝ်ꩻ၊ဟန်ႏနီꩻဟန်ႏဟာ)အတာႏ ကမာꩻသေꩻ၊ ဒါႏနသီႏလေႏ သစ္စာႏခံႏ၊ မဟာႏဒါႏနံႏ ဖေႏအကျိုꩻ၊ ပုညကုသိုလ်ႏဖအခြွီ၊ ဖထင်ႏရီးကီ မွိုးတွမ်ႏဖါ၊ ဆရာႏလဲ့ခါ ဖတွိုႏဗာႏ၊ ဖူးဝေးညာꩻတကာႏ ဖူတွမ်ႏဖီ၊ နီနမ်းလောင်းကီ အဝ်ႏပွေါးထွား၊ တဆီနီစား လူꩻသမ္မာႏ၊ ကျောင်ꩻကန်ႏဝိဟာႏ ကပွေါးထိင်ꩻ၊ ပွေါးလမ်းပွေါးဝေင်ꩻပွေါးဒုံဆောင်ႏ၊ သာသနာႏအခြောင်ႏ ကထိန်ꩻတီ၊ 
         မာႏဃခွန်ဖီ နင်ꩻလူꩻယိန်ႏ၊ သူႏရာႏ သုရိန်ႏ ဟေဝန္တာႏ၊ ဆꩻကွဉ်ႏဖဲ့ꩻဒျာႏ ခွန်မွူးလာ၊ မာႏဃ သိကျာꩻစတုလောႏ မာႏနတ်ခွန်ကျောႏ ဝိသကျုံႏ
@@ -258,18 +286,32 @@
             </p>
         </div>
     </div>
-
 </div>
 
 <script>
+    // Splash Screen logic
+    window.addEventListener("load", function() {
+        setTimeout(function() {
+            const splash = document.getElementById("splash-screen");
+            splash.style.opacity = "0";
+            setTimeout(() => splash.style.display = "none", 500);
+        }, 1500);
+    });
+
+    // PWA Service Worker Registration
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('./sw.js')
+                .then(reg => console.log('SW Registered'))
+                .catch(err => console.log('SW Registration Failed', err));
+        });
+    }
+
+    // Toggle About Content
     function toggleAbout() {
         var content = document.getElementById("aboutContent");
-        if (content.style.display === "block") {
-            content.style.display = "none";
-        } else {
-            content.style.display = "block";
-            content.scrollIntoView({ behavior: 'smooth' });
-        }
+        content.style.display = (content.style.display === "block") ? "none" : "block";
+        if(content.style.display === "block") content.scrollIntoView({ behavior: 'smooth' });
     }
 </script>
 
