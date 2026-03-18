@@ -1,0 +1,21 @@
+{
+  "name": "ပအိုဝ်ႏငဝ်းဝုဲင်ႏဖရာꩻ",
+  "short_name": "ဝုဲင်ႏဖရာꩻ",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#fffaf0",
+  "theme_color": "#b8860b",
+  "icons": [
+    {
+      "src": "logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
